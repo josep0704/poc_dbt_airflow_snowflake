@@ -2,9 +2,8 @@ from datetime import datetime
 import os
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
-from cosmos import DbtDag, DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
+from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import SnowflakeUserPasswordProfileMapping
-
 
 profile_config = ProfileConfig(profile_name="default",
                                target_name="dev",
@@ -14,7 +13,6 @@ profile_config = ProfileConfig(profile_name="default",
                                                         "schema": "BRONZE"
                                                         },
                                                     ))
-
 
 with DAG(
     dag_id="poc_dbt_snowflake",
@@ -26,6 +24,7 @@ with DAG(
 
     dbt_tg = DbtTaskGroup(
         project_config=ProjectConfig("/usr/local/airflow/dags/dbt/dbtproject"),
+        operator_args={"install_deps": True},
         execution_config=ExecutionConfig(dbt_executable_path=f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt",),
         profile_config=profile_config
     )
