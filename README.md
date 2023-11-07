@@ -1,7 +1,7 @@
 Overview
 ========
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+In this project, we leverage the synergy of Apache Airflow, DBT, and Snowflake to construct a data pipeline. Our objective is to import raw data into Snowflake, apply DBT transformations, and furnish clean, analysis-ready datasets for Power BI visualization. This undertaking showcases the seamless integration and cooperation of these cutting-edge data engineering technologies. We use a Maven Analytics sample dataset, comprising two CSV files, featuring churn customer data from a fictional telecom firm. The primary CSV file contains 38 columns encompassing personal, contractual, and revenue details of 7,043 California-based customers. The second CSV file includes zip code and population information.
 
 Project Contents
 ================
